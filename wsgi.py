@@ -5,11 +5,11 @@ from flask_wtf import Form
 from wtforms import FloatField, SubmitField
 from wtforms.validators import InputRequired, DataRequired
 
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'hard to guess string'
+application = Flask(__name__)
+application.config['SECRET_KEY'] = 'hard to guess string'
 
-bootstrap = Bootstrap(app)
-moment = Moment(app)
+bootstrap = Bootstrap(application)
+moment = Moment(application)
 
 
 class NameForm(Form):
@@ -18,17 +18,17 @@ class NameForm(Form):
     submit = SubmitField('Calculer')
 
 
-@app.errorhandler(404)
+@application.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
 
 
-@app.errorhandler(500)
+@application.errorhandler(500)
 def internal_server_error(e):
     return render_template('500.html'), 500
 
 
-@app.route('/', methods=['GET', 'POST'])
+@application.route('/', methods=['GET', 'POST'])
 def index():
     form = NameForm()
     if form.validate_on_submit():
@@ -39,4 +39,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run()
+    application.run()
