@@ -13,8 +13,8 @@ moment = Moment(application)
 
 
 class NameForm(Form):
-    valeur1 = FloatField('valeur 1 : ', validators=[InputRequired("Entrez une valeur")])
-    valeur2 = FloatField('valeur 2 : ', validators=[InputRequired("Entrez une valeur")])
+    valeur1 = FloatField('valeur 1 : ', validators=[InputRequired("Entrez un nombre")])
+    valeur2 = FloatField('valeur 2 : ', validators=[InputRequired("Entrez un nombre")])
     submit = SubmitField('Calculer')
 
 
